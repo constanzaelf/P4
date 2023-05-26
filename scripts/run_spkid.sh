@@ -22,7 +22,7 @@ w=work
 name_exp=one
 db_devel=spk_8mu/speecon
 db_test=spk_8mu/sr_test
-
+world=users_and_others
 # Ficheros de resultados del reconocimiento y verificación
 LOG_CLASS=$w/class_${FEAT}_${name_exp}.log
 LOG_VERIF=$w/verif_${FEAT}_${name_exp}.log
@@ -33,6 +33,9 @@ FINAL_VERIF=$w/verif_test.log
 # proporcionado por el programa gmm_verify, puede serle útil usar un fichero
 # temporal para almacenar este resultado intermedio
 TEMP_VERIF=$w/temp_${FEAT}_${name_exp}.log
+
+#vamos a añadir los parametros de entrenamiento 
+TRAIN_OPTS="-T 1.e-6 -N 70 -m 25"
 
 # ------------------------
 # Usage
@@ -85,6 +88,26 @@ compute_lp() {
         echo $EXEC && $EXEC || exit 1
     done
 }
+compute_lpcc(){
+    db=$1
+    shift
+    for filename in $(sort $*); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="wav2lpcc 16 12 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+}
+
+compute_mfcc(){
+    db=$1
+    shift
+    for filename in $(sort $*); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="wav2mfcc 8 20 30 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+
+}
 
 #  Set the name of the feature (not needed for feature extraction itself)
 if [[ ! -n "$FEAT" && $# > 0 && "$(type -t compute_$1)" = function ]]; then
@@ -102,7 +125,6 @@ fi
 # Main program: 
 # For each cmd in command line ...
 # ---------------------------------
-
 for cmd in $*; do
    echo `date`: $cmd '---';
 
@@ -113,7 +135,7 @@ for cmd in $*; do
        for dir in $db_devel/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           EXEC="gmm_train -v 1 -T 0.001 -N 5 -m 1 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train"
+           EXEC="gmm_train -v 1 $TRAIN_OPTS -i 2 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train"
            echo $EXEC && $EXEC || exit 1
            echo
        done
@@ -139,7 +161,8 @@ for cmd in $*; do
        # Implement 'trainworld' in order to get a Universal Background Model for speaker verification
        #
        # - The name of the world model will be used by gmm_verify in the 'verify' command below.
-       echo "Implement the trainworld option ..."
+       EXEC="gmm_train -i 0 -v 1 -T 0.0001 -N 15 -m 20 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$world.gmm $lists/verif/$world.train"
+           echo $EXEC && $EXEC || exit 1
 
    elif [[ $cmd == verify ]]; then
        ## @file
@@ -150,7 +173,9 @@ for cmd in $*; do
        #   For instance:
        #   * <code> gmm_verify ... > $LOG_VERIF </code>
        #   * <code> gmm_verify ... | tee $LOG_VERIF </code>
-       echo "Implement the verify option ..."
+      EXEC="gmm_verify -d work/$FEAT -e $FEAT -D work/gmm/$FEAT -E gmm -w $world lists/gmm.list lists/verif/all.test lists/verif/all.test.candidates"
+
+       echo $EXEC && $EXEC | tee $LOG_VERIF || exit 1
 
    elif [[ $cmd == verifyerr ]]; then
        if [[ ! -s $LOG_VERIF ]] ; then
@@ -170,7 +195,12 @@ for cmd in $*; do
        #
        # El fichero con el resultado del reconocimiento debe llamarse $FINAL_CLASS, que deberá estar en el
        # directorio de la práctica (PAV/P4).
-       echo "To be implemented ..."
+       compute_$FEAT $db_test $lists/final/class.test
+       EXEC="gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list $lists/final/class.test"
+        echo $EXEC && $EXEC | tee $FINAL_CLASS || exit 1
+
+
+       
    
    elif [[ $cmd == finalverif ]]; then
        ## @file
@@ -189,7 +219,20 @@ for cmd in $*; do
        # candidato para la señal a verificar. En $FINAL_VERIF se pide que la tercera columna sea 1,
        # si se considera al candidato legítimo, o 0, si se considera impostor. Las instrucciones para
        # realizar este cambio de formato están en el enunciado de la práctica.
-       echo "To be implemented ..."
+
+       #HAY QUE DESCOMENTAR COMPUTE FEAT
+       if true; then
+       echo "AJUSTA EL UMBRAL"
+       exit 0
+       fi
+       
+        compute_$FEAT $db_test $lists/final/verif.test
+         EXEC="gmm_verify -d work/$FEAT -e $FEAT -D work/gmm/$FEAT -E gmm -w $world lists/gmm.list lists/final/verif.test lists/final/verif.test.candidates"
+       echo $EXEC && $EXEC | tee $TEMP_VERIF || exit 1
+       perl -ane 'print "$F[0]\t$F[1]\t";
+        if ($F[2] > -0.532470016108616) {print "1\n"}
+        else {print "0\n"}' $TEMP_VERIF | tee $FINAL_VERIF
+        #en la evaluacion final pongo el mejor umbral 
    
    # If the command is not recognize, check if it is the name
    # of a feature and a compute_$FEAT function exists.
