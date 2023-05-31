@@ -32,19 +32,48 @@ ejercicios indicados.
 - Analice el script `wav2lp.sh` y explique la misión de los distintos comandos involucrados en el *pipeline*
   principal (`sox`, `$X2X`, `$FRAME`, `$WINDOW` y `$LPC`). Explique el significado de cada una de las 
   opciones empleadas y de sus valores.
-  - SOX: Permite realizar la conversión de una señal de entrada sin cabecera a una del formato adecuado. Para la conversión se puede elegir cualquier formato de la señal de entrada y los bits utilizados entre otras cosas. Por ejemplo: sox, permite la conversión de una señal de entrada a reales en coma flotante de 32 bits con o sin cabecera.
-image.png
+  - `SOX`: Permite realizar la conversión de una señal de entrada sin cabecera a una del formato adecuado. Para la conversión se puede elegir cualquier formato de la señal de entrada y los bits utilizados entre otras cosas. Por ejemplo: sox, permite la conversión de una señal de entrada a reales en coma flotante de 32 bits con o sin cabecera.
+  *faltan capturas 
+  - `X2X`: Es el programa de SPTK que permite la conversión entre distintos formatos de datos, tal como se puede observar en la siguiente imagen, permite bastantes tipos de conversión, desde convertir a un formato de caracteres, hasta un unsigned long long de 8 bytes. En el caso de convertir a valores numéricos, hay que especificar hasta dónde se quiere que se redondean los valores de salida.  
+  - `$FRAME`:  Divide la señal de entrada en tramas de “l” muestras con desplazamiento de ventana de periodo “p” muestras que se le indiquen y también puede elegir si el punto de comienzo es centrado o no. En nuestro caso tenemos: sptk frame -l 240 -p 80. En este caso le estamos pidiendo que nos divida la señal en tramas de 240 muestras, con un desplazamiento de 80 muestras.
+  - `$WINDOW`: Multiplica cada trama por una ventana. Se puede elegir el número “l” de muestras por trama del fichero de entrada y “L” de muestras por trama del fichero de salida, el tipo de normalización (si no tiene normalización, si tiene normalización power o magnitude) y el tipo de ventana que se desea utilizar, pudiendo escoger entre 6 opciones distintas de ventana, siendo las 6 ventanas más utilizadas. 
+
+
 
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros de
   salida de SPTK (líneas 45 a 51 del script `wav2lp.sh`).
+  * primero adjuntar foto de estas lineas
+
+  - EXPLICACION:
+    1. Utiliza el comando "sox" para convertir el archivo de audio WAV a una señal de tipo "signed int" de 16 bits, sin cabecera ni formato adicional.
+
+    2. Utiliza el comando "X2X" para convertir los datos de formato "short" a formato "float".
+
+    3. Aplica el comando "FRAME" para dividir la señal en tramas de 240 muestras, con un desplazamiento de ventana de 80 muestras.
+
+    4. Utiliza el comando "WINDOW" para aplicar una ventana tipo Blackman a la señal, con una longitud de entrada y salida de 240 muestras.
+
+    5. Utiliza el comando "LPC" para calcular los primeros coeficientes de predicción lineal (LPC) utilizando el método de Levison-Durbin. Se especifica el orden de predicción con el parámetro "-m" y se utiliza un tamaño de trama ("-l") de 240 muestras.
+
+    6. La salida del proceso se redirige al archivo "$base.lp" utilizando la redirección ">".
+
+    7. A continuación, se calcula el número de columnas y filas de la matriz resultante. Para esto, se suma uno al orden del predictor para obtener el número de columnas. El número de filas se calcula teniendo en cuenta la longitud de la señal, la longitud y desplazamiento de la ventana aplicada. Se utiliza el comando "sox" para convertir los datos de tipo float a formato ASCII y luego se utiliza el comando "wc -l" para contar el número de líneas y se resta 1.
+
+    8. Finalmente, se tiene la matriz completa y se imprime en la salida.
+  
 
   * ¿Por qué es más conveniente el formato *fmatrix* que el SPTK?
+    OJO QUE FALTA ESTO 
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
   (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
+  sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
+	$LPC -l 240 -m $lpc_order > $base.lp || exit 1
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en su
   fichero <code>scripts/wav2mfcc.sh</code>:
+  sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
+	$MFCC -l 240 -m $mfcc_order> $base.mfcc || exit 1
 
 ### Extracción de características.
 
@@ -53,14 +82,30 @@ image.png
   
   + Indique **todas** las órdenes necesarias para obtener las gráficas a partir de las señales 
     parametrizadas.
+
+    FEAT=lp run_spkid lp train
+      fmatrix_show work/lp/BLOCK00/SES000/*.lp | egrep '^\[' | cut -f4,5 > lp_2_3.txt
+
+    FEAT=lpcc run_spkid lpcc train
+    fmatrix_show -H work/lpcc/BLOCK00/SES000/*.lpcc | egrep '^\[' | cut -f4,5 > lpcc_2_3.txt
+
+    FEAT=lp run_spkid lp train
+    fmatrix_show -H work/mfcc/BLOCK00/SES000/*.mfcc | egrep '^\[' | cut -f4,5 > mfcc_2_3.txt
+    
   + ¿Cuál de ellas le parece que contiene más información?
 
-- Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
-  parámetros 2 y 3 para un locutor, y rellene la tabla siguiente con los valores obtenidos.
+- Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los parámetros 2 y 3 para un locutor, y rellene la tabla siguiente con los valores obtenidos.
+
+  Comandos usados:
+  1. pearson work/lp/BLOCK00/SES000/*.lp 
+  2. pearson work/lpcc/BLOCK00/SES000/*.lpcc | fgrep ro[2][3]
+  3. pearson work/mfcc/BLOCK00/SES000/*.mfcc | fgrep ro[2][3]
+
+
 
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | &rho;<sub>x</sub>[2,3] |      |      |      |
+  | &rho;<sub>x</sub>[2,3] |  -0.818326 | 0.181637 | -0.154598 |
   
   + Compare los resultados de <code>pearson</code> con los obtenidos gráficamente.
   
@@ -73,6 +118,7 @@ Complete el código necesario para entrenar modelos GMM.
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
 
+
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
   de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
   del modelado GMM para diferenciar las señales de uno y otro.
@@ -83,6 +129,9 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
 
 - Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
+  |                        | LP   | LPCC | MFCC |
+  |------------------------|:----:|:----:|:----:|
+  | &rho;<sub>x</sub>[2,3] |11.08%|1.53% | 0.89%|
 
 ### Verificación del locutor.
 

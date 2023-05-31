@@ -35,7 +35,7 @@ FINAL_VERIF=$w/verif_test.log
 TEMP_VERIF=$w/temp_${FEAT}_${name_exp}.log
 
 #vamos a añadir los parametros de entrenamiento 
-TRAIN_OPTS="-T 1.e-6 -N 70 -m 25"
+TRAIN_OPTS="-T 1.e-4 -N 64 -m 32"
 
 # ------------------------
 # Usage
@@ -103,7 +103,7 @@ compute_mfcc(){
     shift
     for filename in $(sort $*); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2mfcc 8 20 30 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2mfcc 8 20 33 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 
@@ -161,7 +161,7 @@ for cmd in $*; do
        # Implement 'trainworld' in order to get a Universal Background Model for speaker verification
        #
        # - The name of the world model will be used by gmm_verify in the 'verify' command below.
-       EXEC="gmm_train -i 0 -v 1 -T 0.0001 -N 15 -m 20 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$world.gmm $lists/verif/$world.train"
+       EXEC="gmm_train -i 2 -v 1 $TRAIN_OPTS -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$world.gmm $lists/verif/$world.train"
            echo $EXEC && $EXEC || exit 1
 
    elif [[ $cmd == verify ]]; then
@@ -221,7 +221,7 @@ for cmd in $*; do
        # realizar este cambio de formato están en el enunciado de la práctica.
 
        #HAY QUE DESCOMENTAR COMPUTE FEAT
-       if true; then
+       if false; then
        echo "AJUSTA EL UMBRAL"
        exit 0
        fi
@@ -230,7 +230,7 @@ for cmd in $*; do
          EXEC="gmm_verify -d work/$FEAT -e $FEAT -D work/gmm/$FEAT -E gmm -w $world lists/gmm.list lists/final/verif.test lists/final/verif.test.candidates"
        echo $EXEC && $EXEC | tee $TEMP_VERIF || exit 1
        perl -ane 'print "$F[0]\t$F[1]\t";
-        if ($F[2] > -0.532470016108616) {print "1\n"}
+        if ($F[2] > 0.565546865760006) {print "1\n"}
         else {print "0\n"}' $TEMP_VERIF | tee $FINAL_VERIF
         #en la evaluacion final pongo el mejor umbral 
    

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-## \file
-## \TODO This file implements a very trivial feature extraction; use it as a template for other front ends.
-## 
-## Please, read SPTK documentation and some papers in order to implement more advanced front ends.
-
 # Base name for temporary files
 base=/tmp/$(basename $0).$$ 
 
@@ -14,7 +9,7 @@ cleanup() {
    \rm -f $base.*
 }
 
-if [[ $# != 3 ]]; then
+if [[ $# != 5 ]]; then
    echo "$0 fm mfcc_order melbank_order input.wav output.mfcc"
    exit 1
 fi
@@ -33,7 +28,7 @@ if [[ $UBUNTU_SPTK == 1 ]]; then
    WINDOW="sptk window"
    MFCC="sptk mfcc"
 else
-   # or install SPTK building it from its source, para usuarios de mac
+   # or install SPTK building it from its source
    X2X="x2x"
    FRAME="frame"
    WINDOW="window"
@@ -41,13 +36,12 @@ else
 fi
 
 # Main command for feature extration
-sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
-	$MFCC -l 240 -m $mfcc_order> $base.mfcc || exit 1
+sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 180 -p 100 | $WINDOW -l 180 -L 180 |
+	$MFCC -s $fm -l 180 -m $mfcc_order -n $melbank_order > $base.mfcc
 
 # Our array files need a header with the number of cols and rows:
-ncol=$((mfcc_order)) # mfcc p =>  (c0 c1 c2 ... c(p-1)) 
-# nrow=`$X2X +fa < $base.lp | wc -l | perl -ne 'print $_/'$ncol', "\n";'`
-nrow=$($X2X +fa < $base.mfcc | wc -l | perl -ne 'print $_/'$ncol', "\n";')
+ncol=$((mfcc_order)) # mfcc p =>  (a0 a1 a2 ... ap-1) 
+nrow=`$X2X +fa < $base.mfcc | wc -l | perl -ne 'print $_/'$ncol', "\n";'`
 
 # Build fmatrix file by placing nrow and ncol in front, and the data after them
 echo $nrow $ncol | $X2X +aI > $outputfile
