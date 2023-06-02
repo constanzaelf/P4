@@ -80,6 +80,14 @@ ejercicios indicados.
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para todas las señales de un locutor.
   
+  ![image](https://github.com/constanzaelf/P4/assets/113508290/578a90e8-b99a-4bf9-9b5a-2de805e81546)
+
+  ![image](https://github.com/constanzaelf/P4/assets/113508290/a64fd149-4178-4ecb-83fc-d73165419bd4)
+  
+  ![image](https://github.com/constanzaelf/P4/assets/113508290/912e4c53-3912-40fa-aaf4-79262fbcb327)
+
+
+  
   + Indique **todas** las órdenes necesarias para obtener las gráficas a partir de las señales 
     parametrizadas.
 
@@ -118,11 +126,25 @@ Complete el código necesario para entrenar modelos GMM.
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
+  ![image](https://github.com/constanzaelf/P4/assets/113508290/f561b29d-d2cd-4a1a-a379-0b44a25751b3)
+
 
 
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
   de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
   del modelado GMM para diferenciar las señales de uno y otro.
+  
+  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/abd63109-a5ba-4a7b-98f5-6312747a88ad">
+
+  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/1c3570a5-45cd-473d-9be9-c419c5465e61">
+  
+  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/f937d2a0-2b16-45ff-af2f-0cbf457710d6">
+  
+  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/ad6e62c9-1e52-479c-bdd3-69349fb97940">
+
+
+  
+
 
 ### Reconocimiento del locutor.
 
