@@ -98,8 +98,8 @@ ejercicios indicados.
 
   Comandos usados:
   1. pearson work/lp/BLOCK00/SES000/*.lp 
-  2. pearson work/lpcc/BLOCK00/SES000/*.lpcc | fgrep ro[2][3]
-  3. pearson work/mfcc/BLOCK00/SES000/*.mfcc | fgrep ro[2][3]
+  2. pearson work/lpcc/BLOCK00/SES000/*.lpcc 
+  3. pearson work/mfcc/BLOCK00/SES000/*.mfcc 
 
 
 
@@ -117,6 +117,7 @@ Complete el código necesario para entrenar modelos GMM.
 
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
+  
 
 
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
@@ -131,7 +132,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | &rho;<sub>x</sub>[2,3] |11.08%|1.53% | 0.89%|
+  | error rate             |11.08%|1.53% | 0.89%|
 
 ### Verificación del locutor.
 
