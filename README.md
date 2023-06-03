@@ -134,13 +134,16 @@ Complete el código necesario para entrenar modelos GMM.
   de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
   del modelado GMM para diferenciar las señales de uno y otro.
   
-  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/abd63109-a5ba-4a7b-98f5-6312747a88ad">
+	![image](https://github.com/constanzaelf/P4/assets/113508290/f8b45afc-1337-465d-85c2-48890e05aed7)
 
-  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/1c3570a5-45cd-473d-9be9-c419c5465e61">
-  
-  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/f937d2a0-2b16-45ff-af2f-0cbf457710d6">
-  
-  <img width="1440" alt="image" src="https://github.com/constanzaelf/P4/assets/113508290/ad6e62c9-1e52-479c-bdd3-69349fb97940">
+	![image](https://github.com/constanzaelf/P4/assets/113508290/5f063898-1ab8-4dc4-9799-c3bce7d63c5b)
+	
+	![image](https://github.com/constanzaelf/P4/assets/113508290/62b3b9ff-a2d2-4b99-9357-ddadeef314f9)
+	
+	![image](https://github.com/constanzaelf/P4/assets/113508290/af9b9bda-290a-4a89-9fc7-9fe0788cb528)
+
+
+
 
 
   
