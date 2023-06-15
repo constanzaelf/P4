@@ -157,7 +157,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | error rate             |11.08%|1.53% | 0.89%|
+  | error rate             |11.08%|0.38% | 0.89%|
 
 ### Verificación del locutor.
 

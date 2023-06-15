@@ -6,7 +6,7 @@ spk_ver/v00/v0004	SES002	0
 spk_ver/v00/v0005	SES002	0
 spk_ver/v00/v0006	SES002	0
 spk_ver/v00/v0007	SES002	0
-spk_ver/v00/v0008	SES146	0
+spk_ver/v00/v0008	SES146	1
 spk_ver/v00/v0009	SES002	0
 spk_ver/v00/v0010	SES002	0
 spk_ver/v00/v0011	SES002	0
@@ -45,7 +45,7 @@ spk_ver/v00/v0043	SES007	0
 spk_ver/v00/v0044	SES007	0
 spk_ver/v00/v0045	SES007	0
 spk_ver/v00/v0046	SES007	0
-spk_ver/v00/v0047	SES172	0
+spk_ver/v00/v0047	SES172	1
 spk_ver/v00/v0048	SES105	1
 spk_ver/v00/v0049	SES007	0
 spk_ver/v00/v0050	SES292	0
@@ -59,7 +59,7 @@ spk_ver/v00/v0057	SES008	0
 spk_ver/v00/v0058	SES083	1
 spk_ver/v00/v0059	SES158	1
 spk_ver/v00/v0060	SES008	0
-spk_ver/v00/v0061	SES101	1
+spk_ver/v00/v0061	SES101	0
 spk_ver/v00/v0062	SES008	0
 spk_ver/v00/v0063	SES008	0
 spk_ver/v00/v0064	SES117	1
@@ -90,7 +90,7 @@ spk_ver/v00/v0088	SES008	0
 spk_ver/v00/v0089	SES008	0
 spk_ver/v00/v0090	SES142	1
 spk_ver/v00/v0091	SES008	0
-spk_ver/v00/v0092	SES158	0
+spk_ver/v00/v0092	SES158	1
 spk_ver/v00/v0093	SES014	0
 spk_ver/v00/v0094	SES014	0
 spk_ver/v00/v0095	SES014	0
@@ -111,7 +111,7 @@ spk_ver/v01/v0109	SES014	0
 spk_ver/v01/v0110	SES014	0
 spk_ver/v01/v0111	SES014	0
 spk_ver/v01/v0112	SES014	0
-spk_ver/v01/v0113	SES104	1
+spk_ver/v01/v0113	SES104	0
 spk_ver/v01/v0114	SES082	1
 spk_ver/v01/v0115	SES087	1
 spk_ver/v01/v0116	SES014	0
@@ -119,7 +119,7 @@ spk_ver/v01/v0117	SES177	0
 spk_ver/v01/v0118	SES014	0
 spk_ver/v01/v0119	SES014	0
 spk_ver/v01/v0120	SES014	0
-spk_ver/v01/v0121	SES146	1
+spk_ver/v01/v0121	SES146	0
 spk_ver/v01/v0122	SES014	1
 spk_ver/v01/v0123	SES014	0
 spk_ver/v01/v0124	SES014	0
@@ -157,7 +157,7 @@ spk_ver/v01/v0155	SES016	0
 spk_ver/v01/v0156	SES019	0
 spk_ver/v01/v0157	SES019	0
 spk_ver/v01/v0158	SES019	0
-spk_ver/v01/v0159	SES007	0
+spk_ver/v01/v0159	SES007	1
 spk_ver/v01/v0160	SES019	0
 spk_ver/v01/v0161	SES019	0
 spk_ver/v01/v0162	SES019	0
@@ -219,7 +219,7 @@ spk_ver/v02/v0217	SES042	0
 spk_ver/v02/v0218	SES042	0
 spk_ver/v02/v0219	SES206	1
 spk_ver/v02/v0220	SES019	1
-spk_ver/v02/v0221	SES007	0
+spk_ver/v02/v0221	SES007	1
 spk_ver/v02/v0222	SES042	0
 spk_ver/v02/v0223	SES147	1
 spk_ver/v02/v0224	SES105	1
@@ -228,7 +228,7 @@ spk_ver/v02/v0226	SES275	1
 spk_ver/v02/v0227	SES042	0
 spk_ver/v02/v0228	SES042	0
 spk_ver/v02/v0229	SES042	0
-spk_ver/v02/v0230	SES085	0
+spk_ver/v02/v0230	SES085	1
 spk_ver/v02/v0231	SES014	1
 spk_ver/v02/v0232	SES042	0
 spk_ver/v02/v0233	SES048	0
@@ -262,7 +262,7 @@ spk_ver/v02/v0260	SES060	0
 spk_ver/v02/v0261	SES099	1
 spk_ver/v02/v0262	SES060	0
 spk_ver/v02/v0263	SES060	0
-spk_ver/v02/v0264	SES292	0
+spk_ver/v02/v0264	SES292	1
 spk_ver/v02/v0265	SES060	0
 spk_ver/v02/v0266	SES060	0
 spk_ver/v02/v0267	SES060	0
@@ -289,7 +289,7 @@ spk_ver/v02/v0287	SES062	0
 spk_ver/v02/v0288	SES062	0
 spk_ver/v02/v0289	SES062	0
 spk_ver/v02/v0290	SES062	0
-spk_ver/v02/v0291	SES275	0
+spk_ver/v02/v0291	SES275	1
 spk_ver/v02/v0292	SES062	0
 spk_ver/v02/v0293	SES062	0
 spk_ver/v02/v0294	SES062	0
@@ -328,7 +328,7 @@ spk_ver/v03/v0326	SES068	0
 spk_ver/v03/v0327	SES068	0
 spk_ver/v03/v0328	SES068	0
 spk_ver/v03/v0329	SES068	0
-spk_ver/v03/v0330	SES180	0
+spk_ver/v03/v0330	SES180	1
 spk_ver/v03/v0331	SES068	0
 spk_ver/v03/v0332	SES275	1
 spk_ver/v03/v0333	SES062	1
@@ -373,7 +373,7 @@ spk_ver/v03/v0371	SES082	0
 spk_ver/v03/v0372	SES082	0
 spk_ver/v03/v0373	SES082	0
 spk_ver/v03/v0374	SES083	0
-spk_ver/v03/v0375	SES292	1
+spk_ver/v03/v0375	SES292	0
 spk_ver/v03/v0376	SES083	0
 spk_ver/v03/v0377	SES083	0
 spk_ver/v03/v0378	SES083	0
@@ -462,7 +462,7 @@ spk_ver/v04/v0460	SES099	0
 spk_ver/v04/v0461	SES099	0
 spk_ver/v04/v0462	SES082	1
 spk_ver/v04/v0463	SES099	0
-spk_ver/v04/v0464	SES099	0
+spk_ver/v04/v0464	SES099	1
 spk_ver/v04/v0465	SES099	0
 spk_ver/v04/v0466	SES099	0
 spk_ver/v04/v0467	SES099	0
@@ -480,7 +480,7 @@ spk_ver/v04/v0478	SES099	0
 spk_ver/v04/v0479	SES007	0
 spk_ver/v04/v0480	SES101	0
 spk_ver/v04/v0481	SES101	0
-spk_ver/v04/v0482	SES175	0
+spk_ver/v04/v0482	SES175	1
 spk_ver/v04/v0483	SES101	0
 spk_ver/v04/v0484	SES101	0
 spk_ver/v04/v0485	SES101	0
@@ -558,7 +558,7 @@ spk_ver/v05/v0556	SES082	1
 spk_ver/v05/v0557	SES105	0
 spk_ver/v05/v0558	SES014	1
 spk_ver/v05/v0559	SES105	0
-spk_ver/v05/v0560	SES177	0
+spk_ver/v05/v0560	SES177	1
 spk_ver/v05/v0561	SES189	1
 spk_ver/v05/v0562	SES105	0
 spk_ver/v05/v0563	SES099	1
@@ -607,7 +607,7 @@ spk_ver/v06/v0605	SES106	0
 spk_ver/v06/v0606	SES048	1
 spk_ver/v06/v0607	SES167	1
 spk_ver/v06/v0608	SES106	0
-spk_ver/v06/v0609	SES143	0
+spk_ver/v06/v0609	SES143	1
 spk_ver/v06/v0610	SES106	0
 spk_ver/v06/v0611	SES106	0
 spk_ver/v06/v0612	SES106	0
@@ -620,7 +620,7 @@ spk_ver/v06/v0618	SES048	1
 spk_ver/v06/v0619	SES175	1
 spk_ver/v06/v0620	SES180	1
 spk_ver/v06/v0621	SES117	0
-spk_ver/v06/v0622	SES029	0
+spk_ver/v06/v0622	SES029	1
 spk_ver/v06/v0623	SES117	0
 spk_ver/v06/v0624	SES117	0
 spk_ver/v06/v0625	SES117	0
@@ -650,7 +650,7 @@ spk_ver/v06/v0648	SES120	0
 spk_ver/v06/v0649	SES120	0
 spk_ver/v06/v0650	SES087	1
 spk_ver/v06/v0651	SES120	0
-spk_ver/v06/v0652	SES104	0
+spk_ver/v06/v0652	SES104	1
 spk_ver/v06/v0653	SES129	1
 spk_ver/v06/v0654	SES120	0
 spk_ver/v06/v0655	SES120	0
@@ -671,13 +671,13 @@ spk_ver/v06/v0669	SES142	1
 spk_ver/v06/v0670	SES106	1
 spk_ver/v06/v0671	SES183	1
 spk_ver/v06/v0672	SES120	0
-spk_ver/v06/v0673	SES029	0
+spk_ver/v06/v0673	SES029	1
 spk_ver/v06/v0674	SES120	0
 spk_ver/v06/v0675	SES008	1
 spk_ver/v06/v0676	SES125	0
 spk_ver/v06/v0677	SES143	1
 spk_ver/v06/v0678	SES125	0
-spk_ver/v06/v0679	SES162	0
+spk_ver/v06/v0679	SES162	1
 spk_ver/v06/v0680	SES125	0
 spk_ver/v06/v0681	SES125	0
 spk_ver/v06/v0682	SES125	0
@@ -750,7 +750,7 @@ spk_ver/v07/v0748	SES202	1
 spk_ver/v07/v0749	SES270	1
 spk_ver/v07/v0750	SES129	0
 spk_ver/v07/v0751	SES129	0
-spk_ver/v07/v0752	SES060	0
+spk_ver/v07/v0752	SES060	1
 spk_ver/v07/v0753	SES129	0
 spk_ver/v07/v0754	SES129	0
 spk_ver/v07/v0755	SES129	0
@@ -815,7 +815,7 @@ spk_ver/v08/v0813	SES259	1
 spk_ver/v08/v0814	SES143	0
 spk_ver/v08/v0815	SES143	0
 spk_ver/v08/v0816	SES143	0
-spk_ver/v08/v0817	SES144	0
+spk_ver/v08/v0817	SES144	1
 spk_ver/v08/v0818	SES143	0
 spk_ver/v08/v0819	SES143	0
 spk_ver/v08/v0820	SES143	0
@@ -873,7 +873,7 @@ spk_ver/v08/v0871	SES146	0
 spk_ver/v08/v0872	SES146	0
 spk_ver/v08/v0873	SES082	1
 spk_ver/v08/v0874	SES146	0
-spk_ver/v08/v0875	SES144	0
+spk_ver/v08/v0875	SES144	1
 spk_ver/v08/v0876	SES146	0
 spk_ver/v08/v0877	SES146	0
 spk_ver/v08/v0878	SES146	0
@@ -904,7 +904,7 @@ spk_ver/v09/v0902	SES147	0
 spk_ver/v09/v0903	SES147	0
 spk_ver/v09/v0904	SES147	0
 spk_ver/v09/v0905	SES143	1
-spk_ver/v09/v0906	SES149	1
+spk_ver/v09/v0906	SES149	0
 spk_ver/v09/v0907	SES148	0
 spk_ver/v09/v0908	SES148	0
 spk_ver/v09/v0909	SES106	1
@@ -943,7 +943,7 @@ spk_ver/v09/v0941	SES149	0
 spk_ver/v09/v0942	SES149	0
 spk_ver/v09/v0943	SES149	0
 spk_ver/v09/v0944	SES149	0
-spk_ver/v09/v0945	SES105	0
+spk_ver/v09/v0945	SES105	1
 spk_ver/v09/v0946	SES149	0
 spk_ver/v09/v0947	SES149	0
 spk_ver/v09/v0948	SES149	0
@@ -990,7 +990,7 @@ spk_ver/v09/v0988	SES162	0
 spk_ver/v09/v0989	SES162	0
 spk_ver/v09/v0990	SES162	0
 spk_ver/v09/v0991	SES087	1
-spk_ver/v09/v0992	SES120	0
+spk_ver/v09/v0992	SES120	1
 spk_ver/v09/v0993	SES162	0
 spk_ver/v09/v0994	SES162	0
 spk_ver/v09/v0995	SES162	0
@@ -1058,7 +1058,7 @@ spk_ver/v10/v1056	SES172	0
 spk_ver/v10/v1057	SES172	0
 spk_ver/v10/v1058	SES172	0
 spk_ver/v10/v1059	SES172	0
-spk_ver/v10/v1060	SES029	0
+spk_ver/v10/v1060	SES029	1
 spk_ver/v10/v1061	SES175	0
 spk_ver/v10/v1062	SES187	1
 spk_ver/v10/v1063	SES019	1
@@ -1071,7 +1071,7 @@ spk_ver/v10/v1069	SES016	1
 spk_ver/v10/v1070	SES175	0
 spk_ver/v10/v1071	SES175	0
 spk_ver/v10/v1072	SES175	0
-spk_ver/v10/v1073	SES029	0
+spk_ver/v10/v1073	SES029	1
 spk_ver/v10/v1074	SES175	0
 spk_ver/v10/v1075	SES175	0
 spk_ver/v10/v1076	SES175	0
@@ -1099,7 +1099,7 @@ spk_ver/v10/v1097	SES177	0
 spk_ver/v10/v1098	SES177	0
 spk_ver/v10/v1099	SES177	0
 spk_ver/v11/v1100	SES177	0
-spk_ver/v11/v1101	SES085	0
+spk_ver/v11/v1101	SES085	1
 spk_ver/v11/v1102	SES187	1
 spk_ver/v11/v1103	SES177	0
 spk_ver/v11/v1104	SES177	1
@@ -1126,7 +1126,7 @@ spk_ver/v11/v1124	SES180	0
 spk_ver/v11/v1125	SES180	0
 spk_ver/v11/v1126	SES180	0
 spk_ver/v11/v1127	SES180	0
-spk_ver/v11/v1128	SES016	0
+spk_ver/v11/v1128	SES016	1
 spk_ver/v11/v1129	SES158	1
 spk_ver/v11/v1130	SES180	0
 spk_ver/v11/v1131	SES180	0
@@ -1174,7 +1174,7 @@ spk_ver/v11/v1172	SES187	0
 spk_ver/v11/v1173	SES019	1
 spk_ver/v11/v1174	SES187	0
 spk_ver/v11/v1175	SES187	0
-spk_ver/v11/v1176	SES083	0
+spk_ver/v11/v1176	SES083	1
 spk_ver/v11/v1177	SES187	0
 spk_ver/v11/v1178	SES187	0
 spk_ver/v11/v1179	SES187	0
@@ -1319,13 +1319,13 @@ spk_ver/v13/v1317	SES175	1
 spk_ver/v13/v1318	SES259	0
 spk_ver/v13/v1319	SES259	0
 spk_ver/v13/v1320	SES270	0
-spk_ver/v13/v1321	SES101	0
+spk_ver/v13/v1321	SES101	1
 spk_ver/v13/v1322	SES177	1
 spk_ver/v13/v1323	SES127	1
 spk_ver/v13/v1324	SES270	0
 spk_ver/v13/v1325	SES062	1
 spk_ver/v13/v1326	SES270	0
-spk_ver/v13/v1327	SES120	0
+spk_ver/v13/v1327	SES120	1
 spk_ver/v13/v1328	SES270	0
 spk_ver/v13/v1329	SES270	0
 spk_ver/v13/v1330	SES270	0
@@ -1333,7 +1333,7 @@ spk_ver/v13/v1331	SES270	0
 spk_ver/v13/v1332	SES270	0
 spk_ver/v13/v1333	SES270	0
 spk_ver/v13/v1334	SES270	0
-spk_ver/v13/v1335	SES270	1
+spk_ver/v13/v1335	SES270	0
 spk_ver/v13/v1336	SES270	0
 spk_ver/v13/v1337	SES016	1
 spk_ver/v13/v1338	SES270	0
@@ -1355,7 +1355,7 @@ spk_ver/v13/v1353	SES275	0
 spk_ver/v13/v1354	SES189	1
 spk_ver/v13/v1355	SES068	1
 spk_ver/v13/v1356	SES275	0
-spk_ver/v13/v1357	SES048	0
+spk_ver/v13/v1357	SES048	1
 spk_ver/v13/v1358	SES226	1
 spk_ver/v13/v1359	SES016	1
 spk_ver/v13/v1360	SES275	0
